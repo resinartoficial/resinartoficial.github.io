@@ -1,0 +1,116 @@
+const carrito = [];
+
+// Seleccionar todos los botones de añadir al carrito
+const botones = document.querySelectorAll('.add-to-cart');
+const carritoElement = document.getElementById('carrito');
+
+// Función para actualizar el carrito en la interfaz
+function actualizarCarrito() {
+    carritoElement.innerHTML = ''; // Vaciar la lista de carrito
+    carrito.forEach((producto, index) => {
+        const li = document.createElement('li');
+        li.className = 'carrito-item';
+        li.textContent = producto;
+        carritoElement.appendChild(li);
+    });
+}
+
+// Evento de click en cada botón para añadir al carrito
+botones.forEach(boton => {
+    boton.addEventListener('click', (event) => {
+        const producto = event.target.getAttribute('data-product');
+        carrito.push(producto);
+        alert(`${producto} ha sido añadido al carrito.`);
+        actualizarCarrito(); // Actualizar el carrito visual
+    });
+});
+const carrito = [];
+
+// Seleccionar todos los botones de añadir al carrito
+const botones = document.querySelectorAll('.add-to-cart');
+const carritoElement = document.getElementById('carrito');
+
+// Función para actualizar el carrito en la interfaz
+function actualizarCarrito() {
+    carritoElement.innerHTML = ''; // Vaciar la lista de carrito
+    carrito.forEach((producto) => {
+        const li = document.createElement('li');
+        li.className = 'carrito-item';
+
+        // Crear la imagen del producto
+        const img = document.createElement('img');
+        img.src = producto.image;
+        img.alt = producto.name;
+
+        // Crear el nombre del producto
+        const span = document.createElement('span');
+        span.textContent = producto.name;
+
+        // Añadir imagen y nombre al elemento de la lista
+        li.appendChild(img);
+        li.appendChild(span);
+        carritoElement.appendChild(li);
+    });
+}
+
+// Evento de click en cada botón para añadir al carrito
+botones.forEach(boton => {
+    boton.addEventListener('click', (event) => {
+        const producto = {
+            name: event.target.getAttribute('data-product'),
+            image: event.target.getAttribute('data-image')
+        };
+        carrito.push(producto);
+        alert(`${producto.name} ha sido añadido al carrito.`);
+        actualizarCarrito(); // Actualizar el carrito visual
+    });
+});
+
+// Crear un arreglo para el carrito
+const carrito = [];
+
+// Seleccionar todos los botones de añadir al carrito
+const botones = document.querySelectorAll('.add-to-cart');
+const carritoElement = document.getElementById('carrito');
+
+// Función para actualizar el carrito en la interfaz
+function actualizarCarrito() {
+    carritoElement.innerHTML = ''; // Vaciar el carrito visual
+    carrito.forEach((producto) => {
+        const li = document.createElement('li');
+        li.className = 'carrito-item';
+
+        // Crear la imagen del producto
+        const img = document.createElement('img');
+        img.src = producto.image;
+        img.alt = producto.name;
+
+        // Crear el nombre y precio del producto
+        const name = document.createElement('span');
+        name.textContent = producto.name;
+
+        const price = document.createElement('span');
+        price.textContent = ` - $${producto.price}`;
+
+        // Añadir imagen, nombre y precio al elemento de la lista
+        li.appendChild(img);
+        li.appendChild(name);
+        li.appendChild(price);
+        carritoElement.appendChild(li);
+    });
+}
+
+// Evento de click en cada botón para añadir al carrito
+botones.forEach(boton => {
+    boton.addEventListener('click', (event) => {
+        const producto = {
+            name: event.target.getAttribute('data-product'),
+            price: event.target.getAttribute('data-price'),
+            image: event.target.getAttribute('data-image')
+        };
+        carrito.push(producto);
+        alert(`${producto.name} ha sido añadido al carrito.`);
+        actualizarCarrito(); // Actualizar el carrito visual
+    });
+});
+
